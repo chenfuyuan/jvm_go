@@ -27,7 +27,7 @@ func newEntry(path string) Entry {
 		return newCompositeEntry(path)
 	}
 	if strings.HasSuffix(path, "*") {
-		return nil
+		return newWildcardEntry(path)
 	}
 	if judgeIsZip(path) {
 		return newZipEntry(path)
