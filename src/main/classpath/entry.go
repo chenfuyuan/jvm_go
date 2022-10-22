@@ -29,13 +29,21 @@ func newEntry(path string) Entry {
 	if strings.HasSuffix(path, "*") {
 		return nil
 	}
-	if strings.HasSuffix(path, ".jar") ||
-		strings.HasSuffix(path, ".JAR") ||
-		strings.HasSuffix(path, ".zip") ||
-		strings.HasSuffix(path, ".ZIP") {
+	if judgeIsZip(path) {
 		return newZipEntry(path)
 	}
 	return newDirEntry(path)
+}
+
+func judgeIsZip(fileName string) bool {
+	return judgeIsJar(fileName) ||
+		strings.HasSuffix(fileName, ".zip") ||
+		strings.HasSuffix(fileName, ".ZIP")
+}
+
+func judgeIsJar(fileName string) bool {
+	return strings.HasSuffix(fileName, ".jar") ||
+		strings.HasSuffix(fileName, ".JAR")
 }
 
 func loadAbsPath(path string) string {
