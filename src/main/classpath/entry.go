@@ -6,11 +6,10 @@ import (
 	"strings"
 )
 
-// 系统分隔符
-const PATH_LIST_SEPARATOR = string(os.PathListSeparator)
+// PathListSeparator 系统分隔符
+const PathListSeparator = string(os.PathListSeparator)
 
 type Entry interface {
-
 	//readClass 读取class文件
 	//@param className class文件路径
 	//@return []byte 读取到的字节数据
@@ -24,8 +23,8 @@ type Entry interface {
 }
 
 func newEntry(path string) Entry {
-	if strings.Contains(path, PATH_LIST_SEPARATOR) {
-		return nil
+	if strings.Contains(path, PathListSeparator) {
+		return newCompositeEntry(path)
 	}
 	if strings.HasSuffix(path, "*") {
 		return nil
