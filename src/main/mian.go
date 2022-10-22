@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	cmd := parseCmd()
@@ -16,5 +18,5 @@ func main() {
 }
 
 func startJVM(cmd *Cmd) {
-	fmt.Println("classpath:%s class:%s args:%v\n", cmd.cpOption, cmd.class, cmd.args)
+	fmt.Printf("classpath:%s class:%s args:%v\n", cmd.cpOption, cmd.class, cmd.args)
 }
