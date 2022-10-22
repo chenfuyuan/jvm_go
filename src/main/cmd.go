@@ -10,6 +10,7 @@ type Cmd struct {
 	helpFlag    bool     //帮助命令
 	versionFlag bool     //版本命令
 	cpOption    string   //用户自定义类路径
+	xJreOption  string   //Jre路径
 	class       string   //执行类名
 	args        []string //参数值
 }
@@ -37,6 +38,7 @@ func bindVar(cmd *Cmd) {
 
 	flag.StringVar(&cmd.cpOption, "classpath", "", "classpath")
 	flag.StringVar(&cmd.cpOption, "cp", "", "classpath")
+	flag.StringVar(&cmd.xJreOption, "xJre", "", "path to jre")
 	flag.Parse()
 }
 
