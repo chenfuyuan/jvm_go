@@ -7,23 +7,17 @@ import (
 )
 
 type Cmd struct {
-	helpFlag    bool
-	versionFlag bool
-	cpOption    string
-	class       string
-	args        []string
+	helpFlag    bool     //帮助命令
+	versionFlag bool     //版本命令
+	cpOption    string   //用户自定义类路径
+	class       string   //执行类名
+	args        []string //参数值
 }
 
 func parseCmd() *Cmd {
 	cmd := &Cmd{} //初始化
 	bindVar(cmd)
-
-	args := flag.Args()
-	if len(args) > 0 {
-		cmd.class = args[0] //第一个参数为加载文件
-		cmd.args = args[1:] //其余参数为参数文件
-	}
-
+	getArgs(cmd)
 	return cmd
 }
 
