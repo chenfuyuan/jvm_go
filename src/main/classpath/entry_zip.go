@@ -17,7 +17,7 @@ func newZipEntry(path string) *ZipEntry {
 	return &ZipEntry{absPath}
 }
 
-func (z *ZipEntry) readClass(className string) ([]byte, Entry, error) {
+func (z *ZipEntry) ReadClass(className string) ([]byte, Entry, error) {
 	reader, err := zip.OpenReader(z.absPath) //打开读流
 	if err != nil {
 		return nil, nil, err

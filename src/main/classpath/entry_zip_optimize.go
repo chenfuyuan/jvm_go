@@ -11,7 +11,7 @@ type ZipOptimizeEntry struct {
 	readCloser *zip.ReadCloser //缓存zip压缩包
 }
 
-func (z *ZipOptimizeEntry) readClass(className string) ([]byte, Entry, error) {
+func (z *ZipOptimizeEntry) ReadClass(className string) ([]byte, Entry, error) {
 	//读取文件
 	if z.readCloser == nil {
 		err := z.openJar()

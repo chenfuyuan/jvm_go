@@ -10,13 +10,13 @@ import (
 const PathListSeparator = string(os.PathListSeparator)
 
 type Entry interface {
-	//readClass 读取class文件
+	//ReadClass 读取class文件
 	//@param className class文件路径
 	//@return []byte 读取到的字节数据
 	//@return Entry 定位到class的Entry
 	//@return error 错误信息
 	///**
-	readClass(className string) ([]byte, Entry, error)
+	ReadClass(className string) ([]byte, Entry, error)
 
 	// String /**
 	String() string

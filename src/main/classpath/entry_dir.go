@@ -16,7 +16,7 @@ func newDirEntry(path string) *DirEntry {
 	return &DirEntry{absDir}
 }
 
-func (d *DirEntry) readClass(className string) ([]byte, Entry, error) {
+func (d *DirEntry) ReadClass(className string) ([]byte, Entry, error) {
 	//拼接生成文件的绝对路径
 	fileName := filepath.Join(d.absDir, className)
 	//读取文件
